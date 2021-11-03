@@ -1,9 +1,9 @@
-const todoControl = document.querySelector('.todo-control')
-const headerInput = document.querySelector('.header-input')
-const todoList = document.querySelector('.todo-list')
-const todoCompleted = document.querySelector('.todo-completed')
+const todoControl = document.querySelector('.todo-control');
+const headerInput = document.querySelector('.header-input');
+const todoList = document.querySelector('.todo-list');
+const todoCompleted = document.querySelector('.todo-completed');
 
-let toDoData = []
+let toDoData = [];
 
 
 const render = function() {
@@ -26,7 +26,7 @@ const render = function() {
     }
 
     li.querySelector('.todo-complete').addEventListener('click', function() {
-      item.completed = !item.completed
+      item.completed = !item.completed;
       localStorage.clear();
       localStorage.setItem ('toDoData', JSON.stringify(toDoData));
       render()
@@ -63,11 +63,11 @@ todoControl.addEventListener('submit', function(event) {
 })
 
 
-
 // localStorage.clear()
 if(localStorage.getItem(key = 'toDoData') !== null) {
-  toDoData = (JSON.parse(localStorage.getItem(key = 'toDoData')))
-  console.log(toDoData);
+  toDoData = JSON.parse(localStorage.getItem(key = 'toDoData'))
+} else {
+  toDoData = [];
 }
 
 render()
